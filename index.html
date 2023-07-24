@@ -31,49 +31,6 @@
                 console.log('ошибка в postMessage.js', e)
             }
         }
-
-;(function () {
-    "use strict"
-
-    $(document).ready(function () {
-        // $(".height-change-listener").each(function () {
-        //     console.log('функция-обработчик сработала!')
-        //     this.contentWindow.addEventListener(
-        //         "resize",
-        //         function () { postResize() },
-        //         true
-        //     )
-        //     this.contentWindow.addEventListener(
-        //         "message",
-        //         function (message) { alert(message) },
-        //         true
-        //     )
-        //     // this.contentWindow.addEventListener(
-        //     //     "purchase",
-        //     //     function (message) { 
-        //     //         try{
-        //     //             console.log('addEventListener слушатель purchase СРАБОТАЛ!')
-        //     //             var data = JSON.parse(message.data);
-        //     //             var dataLayer = window.dataLayer || (window.dataLayer = []);
-        //     //         if (data.event) {
-        //     //             dataLayer.push({
-        //     //                 ...data
-        //     //             })}
-        //     //         } catch (e) {console.log('ошибка в eventListener postMessage.js', e)}
-        //     //     },
-        //     //     true
-        //     // )
-        //     this.contentWindow.addEventListener(
-        //         "message",
-        //         function (message) { alert(message) },
-        //         true
-        //     )
-
-        // })
-
-        postPurchase() // отправляем событие purchase на сайт в котором установлен iframe
-    })
-})()
 </script>
 <!--     <script src="https://tickets.kassir.ru/widget/widget-container.js"></script> -->
 <!-- Этот скрипт загрузки iframe работает  -->
@@ -85,7 +42,7 @@
 <!--     <a href="https://crocus2.kassir.ru/widget/?key=3166df32-f9f2-e729-a9de-db7b70d39c68&eventId=1203169" class="widget-tr">Купить билет</a> -->
 
     <!-- <a href="https://msk.kassir.ru/frame/entry/index?key=2b7a953a-ecee-bee9-8995-a78336b25ba8&amp;type=E&amp;id=1554524" onclick="return window.kassirWidget.summon()" target="_blank" class="widget-tr redbutton">Купить билет &gt;</a> -->
-    <h1 class="height-change-listener"> Это окно iframe 7</h1>
+    <h1 class="height-change-listener"> Это окно iframe 8</h1>
     <button onclick="console.log('click')">Клик</button>
     <!-- <a href="https://spb.web.test.kassir.ru/frame/entry/index?key=b5d795aa-b069-8861-9996-1e18d7e92b7d" onclick="return window.kassirWidget.summon()" target="_blank" class="widget-tr redbutton">Купить билет &gt;</a> -->
 </body>
