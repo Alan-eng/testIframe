@@ -5,6 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha512-DUC8yqWf7ez3JD1jszxCWSVB0DMP78eOyBpMa5aJki1bIRARykviOuImIczkxlj1KhVSyS16w2FSQetkD4UU2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        function postPurchase(newHeight, callback) {
+            try {
+                console.log(`-----------postPurchase сработал`)
+                parent.postMessage('Привет из айфрейма', *)
+                parent.postPurchase('Привет это Purchase', *)
+        
+                // если виджет открывается внутри iframe
+                // if (
+                //     typeof Config !== "undefined" &&
+                //     Config.domain &&
+                //     dataLayer?.length > 0
+                // ) {
+                //     let purchaseObj = dataLayer?.find((obj) => obj?.event === 'purchase')
+                //     console.log('postPurchase obj = ', purchaseObj)
+                //     if (purchaseObj) {
+        
+                //         parent.postMessage(JSON.stringify(purchaseObj), Config.domain)
+                //     }
+                // }
+                setTimeOut( () => parent.postMessage('Привет из айфрейма setTimeOut', *), 2000)
+            } catch(e) {
+                console.log('ошибка в postMessage.js', e)
+            }
+        }
+
+    ;(function () {
+    "use strict"
+
+    $(document).ready(function () {
+            console.log('this.contentWindow = ', this.contentWindow)
+            this.contentWindow.addEventListener(
+                "purchase",
+                function (message) { 
+                    alert(message)
+                    try{
+                        console.log('addEventListener слушатель purchase СРАБОТАЛ!')
+                        var data = JSON.parse(message.data);
+                        var dataLayer = window.dataLayer || (window.dataLayer = []);
+                    if (data.event) {
+                        dataLayer.push({
+                            ...data
+                        })}
+                    } catch (e) {console.log('ошибка в eventListener postMessage.js', e)}
+                },
+                true
+            )
+            this.contentWindow.addEventListener(
+                "message",
+                function (message) { alert(message) },
+                true
+            )
+
+        )
+        postPurchase() // отправляем событие purchase на сайт в котором установлен iframe
+    })
+})()
+</script>
 <!--     <script src="https://tickets.kassir.ru/widget/widget-container.js"></script> -->
 <!-- Этот скрипт загрузки iframe работает  -->
 <!--     <script src="https://msk.kassir.ru/start-frame.js"></script> -->
